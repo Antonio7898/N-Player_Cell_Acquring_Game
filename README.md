@@ -6,8 +6,8 @@ This game can be played either :
 - Multiplayer mode
  -  Vs Bot 
  - Combination of above two (ie some players are humans and some are bots)
-
-
+ 
+I have designed this game from scratch using knowledge of search and adversary algorithms in AI
 
 ## Rules
 
