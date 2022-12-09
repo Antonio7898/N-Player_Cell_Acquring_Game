@@ -123,7 +123,7 @@ for i in range(n):
     print('\n Available coordinate - ')
     print(np.array(grd))
     x,z = input("\nenter coordinate (r,c) : ").split()
-    ch = input("enter the alphabet : ")
+    ch = input("enter the symbol : ")
     l.append(game(x,z,ch))
 
 print(np.array(grd))
@@ -135,7 +135,6 @@ while len(avail_pts) > 0:
     for i in range(len(ai_l)):
         print('\nAI_',i+1)
         ai_l[i].ai_move()
-        print(c)
         if c==(n+y):
             break
     for i in range(len(l)):
@@ -144,8 +143,29 @@ while len(avail_pts) > 0:
         
 
 print(np.array(grd),"\n\n")
+
+
+ply =[]
+ply_sc =[]
+
 for i in range(len(l)):
     z = l[i].score_sh()
+    p = 'Player_'+str(i+1)
+    ply.append(p)
+    ply_sc.append(z)
     print('Player_',i+1," : ",z)
 for i in range(len(ai_l)):
-    print('AI_',i+1," : ",ai_l[i].score_sh())
+    p = 'AI_'+str(i+1)
+    ply.append(p)
+    z = ai_l[i].score_sh()
+    print('AI_',i+1," : ",z)
+    ply_sc.append(z)
+
+
+sc = dict(zip(ply,ply_sc))
+k = list(sc.keys())
+v = list(sc.values())
+sorted_value = np.argsort(v)
+scorecard = {k[i]: v[i] for i in sorted_value}
+result =dict(reversed(list(scorecard.items())))
+print("\n\n",result)
